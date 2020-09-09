@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			input[type=button]{
+				width: 40px;
+				height: 30px;
+			}
+			
+		</style>
+	</head>
+<body>
+<form name="Calc">
+	<table BORDER=4>
+		<tr>
+			<td>
+			<input type="text"   name="Input" size="19" readonly>
+			<br>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<input type="button" name="one"   class="buttons" value="  1  " OnClick="insert('1')">
+				<input type="button" name="two"  class="buttons"  value="  2  " OnCLick="insert('2')">
+				<input type="button" name="three" class="buttons" value="  3  " OnClick="insert('3')">
+				<input type="button" name="plus" class="buttons"  value="  +  " OnClick="insert('+')">
+				<br>
+				<input type="button" name="four" class="buttons"  value="  4  " OnClick="insert('4')">
+				<input type="button" name="five"  class="buttons" value="  5  " OnCLick="insert('5')">
+				<input type="button" name="six"   class="buttons" value="  6  " OnClick="insert('6')">
+				<input type="button" name="minus"class="buttons"  value="  -  " OnClick="insert('-')">
+				<br>
+				<input type="button" name="seven" class="buttons" value="  7  " OnClick="insert('7')">
+				<input type="button" name="eight" class="buttons" value="  8  " OnCLick="insert('8')">
+				<input type="button" name="nine"  class="buttons" value="  9  " OnClick="insert('9')">
+				<input type="button" name="times"class="buttons"  value="  x  " OnClick="insert('*')">
+				<br>
+				<input type="button" name="clear" class="buttons" value="  c  " OnClick="clean()">
+				<input type="button" name="zero"  class="buttons" value="  0  " OnClick="insert('0')">
+				<input type="button" name="DoIt"  class="buttons" value="  =  " OnClick="equal()">
+				<input type="button" name="div"   class="buttons" value="  /  " OnClick="insert('/')">
+				<br>
+				<input type="button" name="backSpace" class="buttons" value= &lAarr;  onclick="deleteOne()">
+			
+			</td>
+		</tr>
+	</table>
+</form>
+<script>
+	function insert(num){
+		document.Calc.Input.value = document.Calc.Input.value + num;
+	}
+	
+	function clean(){
+		document.Calc.Input.value = '';
+	}
+	function deleteOne(){
+		let str = document.Calc.Input.value ;
+		document.Calc.Input.value = str.substring(0,str.length-1 );
+	}
+	function equal(){
+	let exp = document.Calc.Input.value;
+	try{
+		if(exp){
+			document.Calc.Input.value = eval(exp);
+		}
+
+	}
+	catch(err){
+
+		document.Calc.Input.value = "Error!";
+	}
+	}
+	
+</script>
+</body>
+</html>
